@@ -1,0 +1,23 @@
+<%= render 'shared/caraousel' %>
+<div class="container">
+  <h1 class="text-center">Cocktails</h1>
+
+  <div class="card-deck">
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to cocktail_path(cocktail), class: "text-decoration-none text-body" do %>
+          <div class="col-4 mb-4">
+            <div class="card">
+              <img src="https://cdn.pixabay.com/photo/2016/11/19/13/53/bar-1839361_1280.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= cocktail.name %></h5>
+                <p class="card-text"><% cocktail.doses.each do |dose| %>
+                  <p><%= dose.description %> | </p>
+                  <% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
