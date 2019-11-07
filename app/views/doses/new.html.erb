@@ -1,7 +1,11 @@
-<h1>Put your dose</h1>
-
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit %>
-<% end %>
+<div class="container my-5">
+  <div class="text-center">
+    <h1>Put your dose</h1>
+    <img src="https://cdn.pixabay.com/photo/2017/01/11/11/02/cocktail-1971488_1280.jpg" width="400px" height="400px" class="rounded-circle my-2 shadow" alt="image">
+</div>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :description %>
+      <%= f.association :ingredient,  collection: Ingredient.order(:name) %>
+    <%= f.submit "Edit Dose", class: "btn btn-primary" %>
+  <% end %>
+</div>

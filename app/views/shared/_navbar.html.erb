@@ -1,18 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/cocktails">Cocktail</a>
+<nav class="navbar navbar-expand-lg fixed-top navbar-cocktail">
+  <a class="navbar-brand" href="/cocktails"><i class="fas fa-cocktail mr-2" style="font-size: 30px"></i>MisterCocktail</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/cocktails/new">Add a new cocktail <span class="sr-only">(current)</span></a>
-      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    <%= link_to new_cocktail_path, class: 'btn btn-primary text-white' do %>
+      <i class="far fa-plus-square mr-2"></i>New Cocktail
+    <% end %>
   </div>
 </nav>

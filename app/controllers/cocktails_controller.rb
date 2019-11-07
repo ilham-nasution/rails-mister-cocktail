@@ -25,11 +25,8 @@ class CocktailsController < ApplicationController
   end
 
   def update
-    if @cocktail.save
-      redirect_to new_cocktail_dose_path(@cocktail)
-    else
-      render :new
-    end
+    @cocktail.update(cocktail_params)
+    redirect_to cocktail_path(@cocktail)
   end
 
   def destroy

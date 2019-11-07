@@ -1,14 +1,17 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container mt-5 mb-5">
+  <div class="text-center">
+    <img src="https://cdn.pixabay.com/photo/2017/01/11/11/02/cocktail-1971488_1280.jpg" width="400px" height="400px" class="rounded-circle shadow" alt="image">
+    <h1 class="mt-2"><%= @cocktail.name %></h1>
+    <h2>Ingredient:</h2>
+    <% @cocktail.doses.each do |dose| %>
+        <p><%= dose.description %> | <%= dose.ingredient.name %></p>
+      <% end %>
+    <%= link_to edit_cocktail_path, class: 'btn btn-outline-dark mr-3' do %>
+    <p class="mb-0"> <i class="far fa-edit"></i> edit </p>
+    <% end %>
+      <%= link_to cocktail_path(@cocktail), method: :delete, class: 'btn btn-danger' do %>
+        <p class="mb-0"> <i class="far fa-trash-alt"></i> delete</p>
+      <% end %>
+  </div>
+</div>
 
-<h2>Ingredient:</h2>
-<% @cocktail.ingredients.each do |ingredient| %>
-  <%ingredient.doses.each do |dose| %>
-    <p><%= dose.description %> | <%= ingredient.name %></p>
-  <% end %>
-<% end %>
-
-<%= link_to "edit", edit_cocktail_path %>
-
-<%= link_to cocktail_path(@cocktail), method: :delete do %>
-  <p>delete this cocktail</p>
-<% end %>
