@@ -1,7 +1,11 @@
 <div class="container my-5">
   <div class="text-center">
     <h1>Put your dose</h1>
-    <%= cl_image_tag @cocktail.photo, height: 300, width: 300, radius: :max, crop: :fill, format: :png %>
+    <% if @cocktail.photo.file %>
+        <%= cl_image_tag @cocktail.photo, height: 300, width: 300, radius: :max, crop: :fill, format: :png %>
+      <% else %>
+      <%= image_tag "https://dystonia-foundation.org/wp-content/uploads/woocommerce-placeholder.png", alt: "placeholder", class: "rounded-circle", width: 300, height: 300 %>
+    <% end %>
 </div>
     <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.input :description %>
