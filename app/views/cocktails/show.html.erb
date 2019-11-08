@@ -1,6 +1,10 @@
 <div class="container mt-5 mb-5">
   <div class="text-center">
-    <img src="https://cdn.pixabay.com/photo/2017/01/11/11/02/cocktail-1971488_1280.jpg" width="400px" height="400px" class="rounded-circle shadow" alt="image">
+    <% if @cocktail.photo.file %>
+        <%= cl_image_tag @cocktail.photo, height: 300, width: 300, radius: :max, crop: :fill, format: :png %>
+      <% else %>
+      <%= image_tag "https://dystonia-foundation.org/wp-content/uploads/woocommerce-placeholder.png", alt: "placeholder", class: "rounded-circle", width: 300, height: 300 %>
+    <% end %>
     <h1 class="mt-2"><%= @cocktail.name %></h1>
     <h2>Ingredient:</h2>
     <% @cocktail.doses.each do |dose| %>

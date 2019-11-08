@@ -1,7 +1,7 @@
 <div class="container my-5">
   <div class="text-center">
     <h1>Put your dose</h1>
-    <img src="https://cdn.pixabay.com/photo/2017/01/11/11/02/cocktail-1971488_1280.jpg" width="400px" height="400px" class="rounded-circle my-2 shadow" alt="image">
+    <%= cl_image_tag @cocktail.photo, height: 300, width: 300, radius: :max, crop: :fill, format: :png %>
 </div>
     <%= simple_form_for [@cocktail, @dose] do |f| %>
       <%= f.input :description %>
