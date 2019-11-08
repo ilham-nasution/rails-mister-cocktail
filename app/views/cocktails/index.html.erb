@@ -8,6 +8,7 @@
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail), class: "text-decoration-none text-body" do %>
+        <div data-aos="flip-up"  data-aos-delay="500">
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=
           if cocktail.photo.file
             cl_image_path cocktail.photo, height: 500, width: 500, crop: :fill
@@ -15,6 +16,7 @@
            %>')">
             <%= cocktail.name %>
           </div>
+        </div>
       <% end %>
     <% end %>
   </div>
